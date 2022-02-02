@@ -1,12 +1,12 @@
 # TODO: update allure reprot
 # import allure
 from selenium import webdriver
+from behave import fixture, use_fi
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
-from utils.main_data import MainData
-from Utilities import configReader
+from tests.utils.main_data import MainData
 
-
+@fixture
 def before_scenario(context) -> None:
     """
         Add Maindata data class to context object before scenario execution. 
