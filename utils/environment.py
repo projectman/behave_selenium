@@ -1,7 +1,7 @@
 # TODO: update allure reprot
 # import allure
 from selenium import webdriver
-from behave import fixture, use_fi
+from behave import fixture, use_fixture
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 from tests.utils.main_data import MainData

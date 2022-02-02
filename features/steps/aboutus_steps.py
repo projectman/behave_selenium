@@ -2,12 +2,12 @@ import time
 
 # FIXME: what is inside behave module, what we need instead of wild card? 
 from behave import *
-from features.about_us.aboutus_page import AboutUsPage
+from pages.about_us.about_us_page import AboutUsPage
 
 # Expected steps
-Given user choses browser "chrome"
-And user open Home Page
-When find link contains text "About Us" and click it
+# Given user choses browser "chrome"
+# And user open Home Page
+# When find link contains text "About Us" and click it
 # Then on opened page Title will be as expected
 # Then on opened page quantity of located Our Values elements eqal 3
 # And all expected values "Accountable, Realiable, Ethical" present in
