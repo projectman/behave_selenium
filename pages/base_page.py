@@ -1,11 +1,10 @@
-from selenium.webdriver import ActionChains
-from selenium.webdriver.support.select import Select
-
-from Utilities import configReader
-from utils.main_data import MainData
+from data.main_data import MainData
 import logging
 from Utilities.LogUtil import Logger
-
+from selenium.webdriver import ActionChains
+from selenium.webdriver.support.select import Select
+# TODO: add logger
+# NOTE: logger
 log = Logger(__name__, logging.INFO)
 
 
@@ -16,7 +15,7 @@ class BasePage(MainData):
         self.driver = driver
 
     @property
-    def link_includes_(inner_text: str):
+    def link_includes_(self, inner_text: str):
         """
         @param inner_text, str, text that should be included in link
         """

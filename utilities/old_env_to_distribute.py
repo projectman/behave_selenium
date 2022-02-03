@@ -28,15 +28,4 @@ def select_driver_for(browser_name: str) -> None:
     else:
         context.dirver = context.driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())  
         
-
-def after_scenario(context, driver):
-    context.driver.quit()
-
-
-def after_step(context, step):
-    # TODO: move in the base page
-    if step.status == 'failed':
-        allure.attach(
-            context.driver.get_screenshot_as_png(), name='screenshot',
-            attachment_type=allure.attachment_type.PNG
-        )
+d
