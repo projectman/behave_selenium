@@ -1,15 +1,15 @@
-# TODO: update allure reprot
+# TODO: update allure report
 # import allure
 from selenium import webdriver
-from behave import fixture, use_fixture
+from behave import fixture
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
-from tests.utils.main_data import MainData
+from data.main_data import MainData
 
 @fixture
 def before_scenario(context) -> None:
     """
-        Add Maindata data class to context object before scenario execution. 
+        Add Maindata data class to context object before scenario execution.
     """
     # save Main data in context object
     context.md = MainData()

@@ -8,7 +8,7 @@ def before_all(context):
 
 
 
-def after_scenario(context, driver):
+def after_scenario(context):
     context.driver.quit()
 
 
