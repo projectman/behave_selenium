@@ -20,7 +20,7 @@ def step_impl(context, page_name):
     context.hp = HomePage(context.driver)
     # let save all url that will be need to open in data/home.yaml file...
     context.hp_data = utils.read_yaml(context.hp.HOME_PAGE_YAML)
-    context.hp.open_url_(context.hp_data[page_name])
+    context.hp.open_url(context.hp_data[page_name])
 
 
 # Home page code not used for pennymac

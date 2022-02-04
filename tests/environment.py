@@ -58,7 +58,7 @@ def after_scenario(context, scenario):
 def after_step(context, step):
     # TODO: update allure module
     if step.status == 'failed':
-        print('how allure works? ')
+        print('allure will be implemented')
         # allure.attach(
         #     context.driver.get_screenshot_as_png(), name='screenshot',
         #     attachment_type=allure.attachment_type.PNG

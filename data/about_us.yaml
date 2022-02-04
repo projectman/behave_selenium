@@ -1,7 +1,7 @@
 # This is data of elements on Abut Us page
 
 # Text Data
-aboutUsTitle:     "About Us: What We Do and How We Got Here | PENNYMAC"
+"About Us title":     "About Us: What We Do and How We Got Here | PENNYMAC"
 
 # Locators data
 checkmark_span:    //span[./img[@alt='checkmark icon']]
