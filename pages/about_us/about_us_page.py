@@ -7,10 +7,12 @@ class AboutUsPage(BasePage):
         super().__init__(driver)
 
     def open_home_page(self) -> None:
-        self.driver.get(self.HOME_URL)
+        self.open_url_(self.HOME_URL)
 
-    def click_link_includes_(self, inner_text: str) -> None: 
-        locator = self.get_link_includes(inner_text)
-        self.locate_then_click(locator)
+    def click_link_includes_(self, inner_text: str) -> None:
+        el = self.wait_link_click_with_(inner_text)
+        assert el is not None, \
+            f'Element - link with inner text: {inner_text} can not be clicked.'
+
 
 

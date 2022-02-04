@@ -1,7 +1,8 @@
 from dataclasses import dataclass
 
+
 @dataclass
-class MainData:
+class BaseData:
     """
     Data class with project level constants
     
@@ -10,3 +11,6 @@ class MainData:
     CHROME: str = 'chrome'
     MOBILE: str = 'mobile'
     HOME_URL: str = 'https://www.pennymac.com'
+    WAIT_TIME: str = 5
+    HOME_PAGE_YAML: str = 'data/home.yaml'
+    BASE_PAGE: str = 'data/base.yaml'

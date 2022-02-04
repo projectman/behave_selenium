@@ -3,8 +3,8 @@ from pages.base_page import BasePage
 
 class HomePage(BasePage):
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self, driver):
+        super().__init__(driver)
 
 
     def first_done(self, text: str = ''):
