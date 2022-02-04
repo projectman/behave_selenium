@@ -13,4 +13,3 @@ class BaseData:
     HOME_URL: str = 'https://www.pennymac.com'
     WAIT_TIME: str = 5
     HOME_PAGE_YAML: str = 'data/home.yaml'
-    BASE_PAGE: str = 'data/base.yaml'

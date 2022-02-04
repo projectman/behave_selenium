@@ -7,8 +7,6 @@ from utilities.my_logger import custom_logger as log
 from selenium.webdriver.support.ui import WebDriverWait
 
 
-
-
 class BasePage(BaseData):
 
     """

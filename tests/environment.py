@@ -1,45 +1,57 @@
 """
     Module to create hooks scenarios.
 """
+import time
 
-from behave import given
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 
 # TODO: update allure report
-from pages.home.home_page import HomePage
-from utilities import utils
+from data.base_data import BaseData
+
+POSITIONS = ((0, 0), (500, 200), (1000, 400))
 
 
-@given('user chooses browser "{browser}"')
-def step_impl(context, browser):
-    context.driver = select_driver_for(context, browser)
-    context.hp = HomePage(context.driver)
-    context.hp_data = utils.read_yaml(context.hp.HOME_PAGE_YAML)
-    print(f'I will set browser: {browser}')
-
+def before_all(context):
+    # chrome will be used as default browser
+    browser = context.config.userdata.get('browser', 'chrome')
+    print(f'in before all was chosen: {browser}')
+    select_driver_for(context, browser)
 
 def select_driver_for(context, browser_name: str) -> None:
     """
-    @param browser_name: str, name of browser from the list of browsers
-    @return None, update the context. driver parameter by initiated WebDriver object
+    @param: context, behave.runner.Context object
+    @param: browser_name: str, name of browser from the list of browsers
+    select the webdriver with in accordance with arrived browser_name, then
+    @returns: None, update the context. driver parameter
+    by initiated WebDriver object
+
     """
-    print(f'select_driver_for: chosen driver: {browser_name}')
 
     # Default driver: CHROME
+    bd = BaseData()
     dr_path = ChromeDriverManager().install()
-    if browser_name == context.hp.FIREFOX:
-        dr_path = GeckoDriverManager().install()
-        context.driver = webdriver.Firefox(executable_path=dr_path)
-    elif browser_name == context.hp.MOBILE:
+
+    if browser_name == bd.FIREFOX:
+        # dr_path = GeckoDriverManager().install()   only chrome for debug
+        context.driver = webdriver.Chrome(executable_path=dr_path)
+        pos_i = 1
+
+    elif browser_name == bd.MOBILE:
         # TODO: update code for MOBILE browser
         context.driver = webdriver.Chrome(executable_path=dr_path)
+        pos_i = 2
     else:
+        # Chrome browser by default
         context.driver = webdriver.Chrome(executable_path=dr_path)
+        pos_i = 0
+
+    context.driver.set_window_position(*POSITIONS[pos_i])
 
 
 def after_scenario(context, scenario):
+    print(f'it was scenario: {scenario.name}')
     context.driver.quit()
 
 

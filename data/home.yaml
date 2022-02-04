@@ -1,9 +1,10 @@
 # This is data of element for Home Page
 
+# The URL will be open on site:
+"Home Page":      "https://www.pennymac.com"
 
 # Text data
 title:      PENNYMAC - National Home Mortgage Lender
-
 
 # Locators data
 aboutUs:    //div[@class="container"]//a[@href="about-us"]
